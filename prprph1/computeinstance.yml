@@ -1,0 +1,8 @@
+	computeInstance.yml: 
+	type: computeinstance 
+	name: <your_ci_name>
+	description: testing CI
+	size: Standard_DS3_v2 
+	ssh_public_access_enabled: true 
+	ssh_settings:
+    ssh_key_value: <your_public_ssh_key>

@@ -1,14 +1,20 @@
-# Project
+# Welcome to the Azure ML Managed Network Isolation Private Preview
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+## What is managed network isolation
 
-As the maintainer of this project, please make a few updates:
+With just a few simple steps, this feature streamlines your network isolation experience, speeds up your workspace setup, and frees you from the hassles of virtual network management, private endpoint connections, Vnet inbound/outbound configurations, and integration within your existing network. Enjoy a truly effortless network management experience.
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+You have two options when choosing a network isolation experience: Private, or Private + Data Exfiltration Protection (DEP). You will have Azure Machine Learning managed VNet to provision your resources.
+
+The Private option strikes a balance between security and usability for your data science. All of your resources will be private, but your ML engineers will still be able to access resources on the internet. On the other hand, the Private + DEP option would be best if you're working with sensitive data and want the highest level of security. This option makes all of your resources private and gives you control over what your ML engineers can access.​
+
+## How to participate Private Preview
+
+Submit your info in this [form](https://forms.office.com/r/gfLgNK9H2A).
+
+## Get Started
+
+* [Private Preview Phase1](prprph1/prprph1.md)
 
 ## Contributing
 
