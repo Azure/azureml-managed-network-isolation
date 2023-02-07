@@ -1,6 +1,6 @@
 # Private Preview Phase 1
 
-## Limitations and Prerequists
+## Limitations and Prerequisites
 * Compute Instance with Public IP is the only supported compute type.
 * Make sure your subscription is allowlisted.
 
