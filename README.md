@@ -15,7 +15,6 @@ Submit your info in this [form](https://forms.office.com/r/gfLgNK9H2A).
 ## Get Started
 
 * [Private Preview Phase1](prprph1/prprph1.md)
-* [Limitations](limitations.md)
 
 ## Contributing
 
