@@ -6,7 +6,7 @@
 
 ## What you will get
 
-![](prprph1.png)
+![prprph1 network architecture](prprph1.png)
 
 You can have an AzureML managed VNet with two configuration types.
 * **AllowInternetOutbound**: Allow all internet oubound from AzureML managed VNet. You can have private endpoint connections to your private Azure resources.
@@ -48,14 +48,9 @@ az ml workspace update -n <ws_name> -g <rg_name> --managed-network AllowOnlyAppr
 
 ## Create your compute intance
 
+Use [computeinstance.yml](computeinstance.yml) with your compute instance name and SSH key.
 ```python
 az ml compute create --file computeInstance.yml --resource-group <rg_name> --workspace-name <ws_name> 
-```
-
-## Connect to the compute instance using SSH
-
-```python
-az ml compute connect-ssh --name <ci_name>--resource-group <rg_name> --workspace-name <ws_name> --private-key-file-path <your sshkey path>
 ```
 
 You can create and copy your SSH key if you do not have it.
@@ -63,6 +58,18 @@ You can create and copy your SSH key if you do not have it.
 ```python
 ssh-keygen -m PEM -t rsa -b 4096
 cat ~/.ssh/id_rsa.pub
+```
+
+## Confirm Configurations
+
+You can check private endpoint connections on Azure portal.
+
+![storage pe](storagepe.png)
+
+## Connect to the compute instance using SSH
+
+```python
+az ml compute connect-ssh --name <ci_name>--resource-group <rg_name> --workspace-name <ws_name> --private-key-file-path <your sshkey path>
 ```
 
 ## User jupyter notebook on the compute instance
@@ -77,8 +84,8 @@ TBU
 
 TBU
 
-## Clean up the workspace
+## Clean up the environment
 
 ```python
-az ml workspace delete --resource-group <rg_name> --name <ws_name>
+az group delete -n <rg_name>
 ```
