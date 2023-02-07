@@ -58,6 +58,13 @@ az ml compute create --file computeInstance.yml --resource-group <rg_name> --wor
 az ml compute connect-ssh --name <ci_name>--resource-group <rg_name> --workspace-name <ws_name> --private-key-file-path <your sshkey path>
 ```
 
+You can create and copy your SSH key if you do not have it.
+
+```python
+ssh-keygen -m PEM -t rsa -b 4096
+cat ~/.ssh/id_rsa.pub
+```
+
 ## User jupyter notebook on the compute instance
 
 TBU
