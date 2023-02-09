@@ -64,7 +64,7 @@ or
 ```Azure CLI
 az ml workspace update --file workspace.yml --resource-group MyGroup
 ```
-You can find a sample [peoutbound.yml](workspace.yml)
+You can find a sample [peoutbound.yml](peoutbound.yml)
 
 ```YAML
 name: MyWorkspace
