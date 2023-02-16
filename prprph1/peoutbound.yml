@@ -2,7 +2,7 @@ name: MyWorkspace
 managed_network:
   outbound_rules:
     MyStorage:
-      type: PrivateEndpoint
+      type: private_endpoint
       destination:
         service_resource_id: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyGroup/providers/Microsoft.Storage/storageAccounts/MyAccount"
         subresource_target: "blob"
