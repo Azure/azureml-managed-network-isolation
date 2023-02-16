@@ -11,8 +11,8 @@
 ![prprph1 network architecture](prprph1.png)
 
 You can have an AzureML managed VNet with two configuration types.
-* **AllowInternetOutbound**: Allow all internet oubound from AzureML managed VNet. You can have private endpoint connections to your private Azure resources.
-* **AllowOnlyApprovedOutbound**: You can allow outbound only to the approved outbound. You can allow outbound using private endpoint, FQDN and service tag.
+* **allow_internet_outbound**: Allow all internet oubound from AzureML managed VNet. You can have private endpoint connections to your private Azure resources.
+* **allow_only_approved_outbound**: You can allow outbound only to the approved outbound. You can allow outbound using private endpoint, FQDN and service tag.
 
 ## CLI setup
 1. Remove your Azure CLI AzureML extension if you have.
@@ -41,11 +41,12 @@ az ml workspace create -n <new_ws_name> -g <rg_name> --location eastus2 --manage
 2. Enable manage network isolation
 
 ```Azure CLI
-az ml workspace update -n <ws_name> -g <rg_name> --managed-network AllowInternetOutbound
+az ml workspace update -n <ws_name> -g <rg_name> --managed-network allow_internet_outbound
+
 ```
 or
 ```Azure CLI
-az ml workspace update -n <ws_name> -g <rg_name> --managed-network AllowOnlyApprovedOutbound
+az ml workspace update -n <ws_name> -g <rg_name> --managed-network allow_only_approved_outbound
 ```
 
 ## Confirm private endpoint connection to your default resources (storage, KV, ACR)
