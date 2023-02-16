@@ -91,9 +91,9 @@ cat ~/.ssh/id_rsa.pub
 az ml compute connect-ssh --name <ci_name>--resource-group <rg_name> --workspace-name <ws_name> --private-key-file-path <your sshkey path>
 ```
 
-## Confirm private endpoint connection to your default resources (storage, KV, ACR)
+## Optional: Confirm private endpoint connection to your default resources (storage, KV, ACR)
 
-You can check private endpoint connections on Azure portal.
+You can check private endpoint connections on Azure portal. You can see private endpoints after your first compute creation.
 
 ![storage pe](storagepe.png)
 
