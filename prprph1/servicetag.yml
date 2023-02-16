@@ -2,7 +2,7 @@ name: "MyWorkspace"
 managed_network:
   outbound_rules:
     MyAzureSerivce:
-      type: "ServiceTag"
+      type: "service_tag"
       destination:
         service_tag: "DataFactory"
         port_ranges: "80, 8080-8089"
