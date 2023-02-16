@@ -73,6 +73,8 @@ managed_network:
 
 ## Create your compute intance
 
+** Note that your first CI creation takes 10 mins because we need to initiate multiple private endpoints **
+
 Use [computeinstance.yml](computeinstance.yml) with your compute instance name and SSH key.
 ```Azure CLI
 az ml compute create --file computeInstance.yml --resource-group <rg_name> --workspace-name <ws_name> 
