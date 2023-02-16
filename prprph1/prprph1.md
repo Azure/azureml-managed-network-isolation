@@ -48,13 +48,6 @@ or
 ```Azure CLI
 az ml workspace update -n <ws_name> -g <rg_name> --managed-network allow_only_approved_outbound
 ```
-
-## Confirm private endpoint connection to your default resources (storage, KV, ACR)
-
-You can check private endpoint connections on Azure portal.
-
-![storage pe](storagepe.png)
-
 ## Create private endpoints to access your private storage (optional)
 You can create private endpoints to access your private resources. Below is an example to create a PE for an Azure storage.
 
@@ -98,9 +91,11 @@ cat ~/.ssh/id_rsa.pub
 az ml compute connect-ssh --name <ci_name>--resource-group <rg_name> --workspace-name <ws_name> --private-key-file-path <your sshkey path>
 ```
 
-## User jupyter notebook on the compute instance
+## Confirm private endpoint connection to your default resources (storage, KV, ACR)
 
-TBU
+You can check private endpoint connections on Azure portal.
+
+![storage pe](storagepe.png)
 
 ## Optional: Create a service tag outbound
 
