@@ -3,6 +3,7 @@
 ## Limitations and Prerequisites
 * Compute Instance with Public IP is the only supported compute type.
 * FQDN outbound is not supported.
+* Default PE to ACR is not supported.
 * Supported region is useast2 only.
 * Make sure your subscription is allowlisted.
 
@@ -12,7 +13,7 @@
 
 You can have an AzureML managed VNet with two configuration types.
 * **allow_internet_outbound**: Allow all internet oubound from AzureML managed VNet. You can have private endpoint connections to your private Azure resources.
-* **allow_only_approved_outbound**: You can allow outbound only to the approved outbound. You can allow outbound using private endpoint, FQDN and service tag.
+* **allow_only_approved_outbound**: You can allow outbound only to the approved outbound. You can allow outbound using private endpoint, FQDN(will be available) and service tag.
 
 ## CLI setup
 1. Remove your Azure CLI AzureML extension if you have.
@@ -56,7 +57,7 @@ You can create private endpoints to access your private resources. Below is an e
 ```
 or
 ```Azure CLI
-az ml workspace update --file workspace.yml --resource-group MyGroup
+az ml workspace update --file peoutbound.yml --resource-group MyGroup
 ```
 You can find a sample [peoutbound.yml](peoutbound.yml)
 
@@ -73,6 +74,8 @@ managed_network:
 
 ## Create your compute intance
 
+**Note that your first CI creation takes 10 mins because we need to initiate multiple private endpoints**
+
 Use [computeinstance.yml](computeinstance.yml) with your compute instance name and SSH key.
 ```Azure CLI
 az ml compute create --file computeInstance.yml --resource-group <rg_name> --workspace-name <ws_name> 
@@ -84,6 +87,10 @@ You can create and copy your SSH key if you do not have it.
 ssh-keygen -m PEM -t rsa -b 4096
 cat ~/.ssh/id_rsa.pub
 ```
+
+## Use Notebook of your Compute Instance
+
+Go to your Workspace/Notebook or Workspace/Compute/Compute Instance/Jupyter to test python SDK using sample notebooks.
 
 ## Connect to the compute instance using SSH
 
