@@ -1,10 +1,11 @@
 # Private Preview Phase 1
 
 ## Limitations and Prerequisites
-* Compute Instance with Public IP is the only supported compute type.
+* Compute Instance **with Public IP** is the only supported compute type.
+* Supported region is **eastus** only.
+* allow_only_approved_outbound is not fully supported.
 * FQDN outbound is not supported.
-* Default PE to ACR is not supported.
-* Supported region is useast2 only.
+* Default PE to ACR/Monitor is not supported.
 * Make sure your subscription is allowlisted.
 
 ## What you will get
@@ -35,21 +36,30 @@ az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheel
 ```Azure CLI
 az login
 az account set -s <subscriptionId>
-az group create -g <new_rg_name> 
-az ml workspace create -n <new_ws_name> -g <rg_name> --location eastus2 --managed-network Disabled
+az group create -g <new_rg_name>
+az configure -d group=<new_rg_name> location=eastus
+az ml workspace create -n <new_ws_name> -g <rg_name> --location eastus --managed-network Disabled
 ```
 
 2. Enable manage network isolation
 
+**allow_internet_outbound**: Allow all internet oubound from AzureML managed VNet. You can have private endpoint connections to your private Azure resources.
+
 ```Azure CLI
 az ml workspace update -n <ws_name> -g <rg_name> --managed-network allow_internet_outbound
-
 ```
+
+<!---
 or
+
+**allow_only_approved_outbound**: You can allow outbound only to the approved outbound. You can allow outbound using private endpoint, FQDN(will be available) and service tag.
+
 ```Azure CLI
 az ml workspace update -n <ws_name> -g <rg_name> --managed-network allow_only_approved_outbound
 ```
-## Create private endpoints to access your private storage (optional)
+--->
+
+## Optional: Create private endpoints to access your private storage
 You can create private endpoints to access your private resources. Below is an example to create a PE for an Azure storage.
 
 ```Azure CLI
@@ -92,15 +102,15 @@ cat ~/.ssh/id_rsa.pub
 
 Go to your Workspace/Notebook or Workspace/Compute/Compute Instance/Jupyter to test python SDK using sample notebooks.
 
-## Connect to the compute instance using SSH
+## Optional: Connect to the compute instance using SSH
 
 ```Azure CLI
 az ml compute connect-ssh --name <ci_name>--resource-group <rg_name> --workspace-name <ws_name> --private-key-file-path <your sshkey path>
 ```
 
-## Optional: Confirm private endpoint connection to your default resources (storage, KV, ACR)
+## Optional: Confirm private endpoint connection to your default resources (storage, KV)
 
-You can check private endpoint connections on Azure portal. You can see private endpoints after your first compute creation.
+You can check private endpoint connections on Azure portal. You can see private endpoints after your first compute creation. PE connection to ACR/Monitor will come.
 
 ![storage pe](storagepe.png)
 
@@ -126,6 +136,10 @@ managed_network:
         port_ranges: "80, 8080-8089"
         protocol: "TCP"
 ```
+
+## File a bug if you have any problems
+Submit a issue details via https://forms.office.com/r/5WpJGk9jK0.
+AzureML team will set periodical meetings to discuss issues if necessaary.
 
 ## Clean up the environment
 
