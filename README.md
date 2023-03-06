@@ -8,6 +8,8 @@ You have two options when choosing a network isolation experience: Private, or P
 
 The Private option strikes a balance between security and usability for your data science. All of your resources will be private, but your ML engineers will still be able to access resources on the internet. On the other hand, the Private + DEP option would be best if you're working with sensitive data and want the highest level of security. This option makes all of your resources private and gives you control over what your ML engineers can access.​
 
+![archtecture](managedvnet_architecture.png)
+
 ## How to participate Private Preview
 
 Submit your info in this [form](https://forms.office.com/r/gfLgNK9H2A).
