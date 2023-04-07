@@ -26,7 +26,7 @@ az extension remove -n ml
 2. Install CLI ML extension for private preview
 
 ```Azure CLI
-az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/ml-0.0.88429364-py3-none-any.whl
+az extension add --source https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-cli-v2/ml-0.0.88584999-py3-none-any.whl
 ```
 
 ## Create your new workspace (do not test this with your existing workspaces)
