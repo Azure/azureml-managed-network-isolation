@@ -63,10 +63,6 @@ az ml workspace update -n <ws_name> -g <rg_name> --managed-network allow_only_ap
 You can create private endpoints to access your private resources. Below is an example to create a PE for an Azure storage.
 
 ```Azure CLI
-> az ml workspace outbound-rule set --resource-group MyGroup --workspace-name MyWorkspace --rule MyStorage --type PrivateEndpoint --service-resource-id "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyGroup/providers/Microsoft.Storage/storageAccounts/MyAccount" --subresource-target blob
-```
-or
-```Azure CLI
 az ml workspace update --file peoutbound.yml --resource-group MyGroup
 ```
 You can find a sample [peoutbound.yml](peoutbound.yml)
